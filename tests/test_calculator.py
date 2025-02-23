@@ -25,13 +25,14 @@ def setup_test_data():
     (Calculator.multiply, 4, 3, 12),
     (Calculator.divide, 10, 2, 5),
 ])
+
 def test_operations(operation, num1, num2, expected):
     """Test basic calculator operations."""
     assert operation(num1, num2) == expected
 
 def test_divide_by_zero():
     """Test division by zero raises an error."""
-    with pytest.raises(ZeroDivisionError):
+    with pytest.raises(ValueError):
         Calculator.divide(5, 0)
 
 def test_calculation_class():

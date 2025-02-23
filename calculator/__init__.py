@@ -18,7 +18,7 @@ class Calculator:
 
     @staticmethod
     def divide(a: float, b: float) -> float:
-        """Returns the division of two numbers, raises error if divided by zero."""
-        if b == 0:
-            raise ZeroDivisionError("Cannot divide by zero.")
-        return a / b
+    	"""Returns the division of two numbers, raises error if divided by zero."""
+    	if b == 0:
+        	raise ValueError("Cannot divide by zero.")
+    	return a / b
