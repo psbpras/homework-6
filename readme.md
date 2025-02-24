@@ -10,44 +10,22 @@
 
 
 1. pytest
-2. pytest --pylint
+2. pytest --num_records=10
 3. pytest --pylint --cov
 
 
 # Implementation Steps
 
-1. Basic Calculator (Main Branch)
+# Running the calculator via CLI
 
-	Implement basic arithmetic functions (add, subtract, multiply, divide).
-	
-	Write unit tests for each function.
+python main.py  <number 1> <number 2> <operation>
 
-2. Intermediate Calculator (Part 2)
+# Example:
 
-	Introduce Calculation class (instance methods).
-	
-	Implement static methods in Calculator class.
-	
-	Ensure exception handling for division by zero.
-	
-	Write additional unit tests.
+python3 main.py 5 3 add
 
-3. Advanced Calculator (Part 3)
+# Output:
 
-	Implement Calculations class (class methods) for history management.
-	
-	Use @classmethod, @staticmethod, and @property appropriately.
-	
-	Implement pytest fixtures and parameterized tests.
-	
-	Achieve 100% test coverage and pylint compliance.
-
-4. Branching Strategy
-
-	Main Branch: Basic Calculator (Functions Only).
-	
-	Part 2 Branch: OOP with Static Methods & Instance Methods.
-	
-	Part 3 Branch: Fully Featured Calculator (Class Methods, History, Parameterized Tests).
+The result of 5 and 3 is equal to 8
 
 
