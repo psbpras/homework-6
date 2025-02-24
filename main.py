@@ -37,9 +37,7 @@ def main():
             print("An error occurred: Cannot divide by zero")
             sys.exit(0)
 
-        result = operations[operation](num1, num2)
-
-        # Convert numbers & result to int if possible
+        result = operations[operation](num1, num2)                      # Convert numbers & result to int if possible
         num1 = format_number(num1)
         num2 = format_number(num2)
         result = format_number(result)
@@ -49,6 +47,7 @@ def main():
     except ZeroDivisionError:
         print("An error occurred: Cannot divide by zero")
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,5 @@
+[run]
+omit = 
+    /etc/python3.10/sitecustomize.py
+    /usr/lib/python3/dist-packages/apport_python_hook.py
+    */site-packages/*

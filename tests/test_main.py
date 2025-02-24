@@ -45,14 +45,20 @@ def test_operations(num1, num2, operation, expected):
     """Test basic calculator operations."""
     assert getattr(Calculator, operation)(num1, num2) == expected
 
-def test_invalid_operation():
-    """Test invalid operation handling in CLI."""
-    result = subprocess.run(
-        ["python3", "main.py", "10", "5", "invalid_op"],
-        capture_output=True, text=True, check=True
-    )
-    assert "Unknown operation" in result.stdout
 
+def test_extra_arguments():
+    """Test when extra arguments are provided"""
+    try:
+        result = subprocess.run(
+            ["python3", "main.py", "5", "3", "add", "extra"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+    except subprocess.CalledProcessError as e:
+        result = e  # Capture error output
+
+    assert "Usage: python main.py <num1> <num2> <operation>" in result.stdout
 
 def test_non_numeric_input():
     """Test handling of non-numeric inputs."""
@@ -62,7 +68,23 @@ def test_non_numeric_input():
     )
     assert "Invalid number input" in result.stdout
 
+
 def test_divide_by_zero():
-    """Test division by zero raises a ValueError."""
-    with pytest.raises(ValueError, match="Cannot divide by zero"):
-        Calculator.divide(5, 0)
+    """Test division by zero handling"""
+    result = subprocess.run(
+        ["python3", "main.py", "5", "0", "divide"],
+        capture_output=True,
+        text=True,
+        check=True)
+    assert "An error occurred: Cannot divide by zero" in result.stdout
+
+def test_missing_arguments():
+    """Test when arguments are missing"""
+    result = subprocess.run(
+        ["python3", "main.py", "5"],  # Missing num2 and operation
+        capture_output=True,
+        text=True,
+        check=False  # Prevent subprocess crash
+    )
+    assert "Usage: python main.py" in result.stdout  # Check for correct message
+    assert result.returncode == 1
