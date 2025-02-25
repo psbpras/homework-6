@@ -23,6 +23,7 @@ def main():
 
     # Perform calculation
     try:
+
         operations = {
             "add": Calculator.add,
             "subtract": Calculator.subtract,
