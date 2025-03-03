@@ -78,4 +78,4 @@ It supports dynamic command loading, unit testing, and exception handling.
 	Part 3 Branch: Fully Featured Calculator (Class Methods, History, Parameterized Tests).
 
 
->>>>>>> main
+# logging and env setup done
